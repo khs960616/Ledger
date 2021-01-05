@@ -1,4 +1,4 @@
-package ledger.user;
+package ledger.company;
 
 import java.io.Serializable;
 
@@ -21,25 +21,25 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name ="user")
-public class User implements Serializable {
+@Table(name ="COMPANY_TB")
+public class Company implements Serializable {
 	private static final long serialVersionUID = -6729987133621315053L;
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private Long userId; //primary key
-	
+	private Long id; //primary key
 	@Column
-	private String email; //로그인시 사용
+	private String name; //사업체명
 	@Column
-	private String password; //로그인 기능 구현시 사용
-	
+	private String number; //사업체 전화 번호
 	@Column
-	private String userName; //예금주명
+	private String representative; //대표자명
 	@Column
 	private String bankName; //은행명
 	@Column
-	private String accountNumber; // 계좌번호
+	private String accountNumber; //사업체 계좌번호
 	@Column
-	private String businessNumber; //업장 전화 번호
+	private String registrationNumber; //사업체 등록번호
+	@Column
+	private String location; //사업체 위치
 }
