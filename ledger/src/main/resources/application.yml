@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://192.168.57.125:18887/ledger
+    url: jdbc:mariadb://127.0.0.1:3306/ledger
     driver-class-name: org.mariadb.jdbc.Driver
     username: root
     password: mariadb
