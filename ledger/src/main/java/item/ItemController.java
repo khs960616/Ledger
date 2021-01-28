@@ -26,14 +26,20 @@ public class ItemController {
     
     @ApiOperation(value = "품목 id", notes = "품목 검색")
     @PostMapping(value = "/item/findbyId")
-    public Item findItem(@ModelAttribute Long itemId){
+    public Item getItem(@ModelAttribute Long itemId){
         return itemService.getItemById(itemId);
     }
 
     @ApiOperation(value ="모든품목 검색")
     @PostMapping(value = "/item/findall")
-    public List<Item> findAllItem(){
+    public List<Item> getAllItem(){
         return itemService.getAllItem();
+    }
+
+    @ApiOperation(value = " 품목 삭제")
+    @PostMapping(value = "/item/delete" )
+    public void deleteItem(@ModelAttribute Long itemId){
+	     itemService.deleteItemById(itemId);
     }
     
     

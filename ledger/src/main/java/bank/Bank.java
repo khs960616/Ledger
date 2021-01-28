@@ -1,4 +1,4 @@
-package ledger.item;
+package ledger.bank;
 
 import java.io.Serializable;
 
@@ -21,14 +21,14 @@ import lombok.AllArgsConstructor;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name ="item")
-public class Item implements Serializable {
+@Table(name ="bank")
+public class Bank implements Serializable {
     private static final long serialVersionUID = -6729987133621315053L;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long itemId;
+    private Long bankId;
 
     @Column(nullable = false)
-    private String itemName;
+    private String bankName;
 }

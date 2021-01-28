@@ -33,7 +33,7 @@ public class ItemService {
 		return itemJpaRepo.save(item);
 	}
 	
-	public void deleteitem(Long itemId) {
+	public void deleteItemById(Long itemId) {
 		Item item = itemJpaRepo.findById(itemId).get();
 		if(item==null) {
 			log.info("Not Exist Error :: Item");
