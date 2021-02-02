@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping(value ="/v3")
 public class BankController {
 
-    private final BankService bankService;
+    private  final BankService bankService;
 
     @ApiOperation(value = "전체 은행 목록")
     @PostMapping(value = "/bank/findAll")

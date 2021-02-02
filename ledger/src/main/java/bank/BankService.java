@@ -24,6 +24,11 @@ public class BankService {
     public Bank getBankById(Long bankId){
         return bankJpaRepo.findById(bankId).get();
     }
+   public Boolean isBankById(Long bankId){
+        if(bankJpaRepo.findById(bankId) == null)
+            return false;
+        return true;
+    }
 
     public Bank createBank(Bank bankParam){
         Bank bank = Bank.builder()
