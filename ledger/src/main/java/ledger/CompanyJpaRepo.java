@@ -1,5 +1,5 @@
-package ledger.company;
-import java.util.List;
+package ledger;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

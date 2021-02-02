@@ -1,4 +1,4 @@
-package ledger.bank;
+package ledger;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 @RequiredArgsConstructor
 public class BankService {
-    private final BankJpaRepo bankJpaRepo;
+    private BankJpaRepo bankJpaRepo;
   
     public List<Bank> getAllBank(){
         return bankJpaRepo.findAll();
@@ -24,8 +24,9 @@ public class BankService {
     public Bank getBankById(Long bankId){
         return bankJpaRepo.findById(bankId).get();
     }
-   public Boolean isBankById(Long bankId){
-        if(bankJpaRepo.findById(bankId) == null)
+   public boolean isBankById(Long bankId){
+    Bank bank = bankJpaRepo.findById(bankId).get();
+        if(bank==null)
             return false;
         return true;
     }

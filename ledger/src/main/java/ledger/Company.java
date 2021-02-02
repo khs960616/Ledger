@@ -1,5 +1,4 @@
-package ledger.company;
-import ledger.bank.Bank;
+package ledger;
 
 import java.io.Serializable;
 
@@ -48,8 +47,8 @@ public class Company implements Serializable {
     private String location;
 
     @ManyToOne
-    @JoinColumn(name="bank_id")
-    private Bank bank;
+    @JoinColumn(name="bankId")
+    private Bank bankId;
 
     @Column
     private String accountNumber;

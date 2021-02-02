@@ -1,8 +1,10 @@
-package ledger.company;
+package ledger;
 import java.util.List;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,22 +18,22 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(value ="/v4")
 public class CompanyController{
-    private final CompanyService companyService;
+    private  CompanyService companyService;
 
     @ApiOperation(value = "전체 회사 목록")
-    @PostMapping(value = "/compay/findAll")
+    @GetMapping(value = "/compay/findAll")
     public List<Company> findAllCompany(){
         return companyService.getAllCompany();
     }
 
     @ApiOperation(value ="회사 삭제")
-    @PostMapping(value = "/company/delete")
-    public void deleteCompany(Long companyId){
-        companyService.deleteCompany(companyId);
+    @DeleteMapping(value = "/company/{delete}")
+    public void deleteCompany(@PathVariable("delete") Long companyId){
+        companyService.deleteCompanyById(companyId);
     }
 
     @ApiOperation(value = "회사 찾기")
-    @PostMapping(value = "/company/findById")
+    @GetMapping(value = "/company/findById")
     public Company findCompany(Long companyId){
         return companyService.getCompanyById(companyId);
     }

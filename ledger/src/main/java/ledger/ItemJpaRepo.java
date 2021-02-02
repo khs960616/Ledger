@@ -1,4 +1,4 @@
-package ledger.item;
+package ledger;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

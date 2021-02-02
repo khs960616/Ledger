@@ -1,4 +1,4 @@
-package ledger.user;
+package ledger;
 
 import java.io.Serializable;
 
@@ -15,13 +15,14 @@ import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
-@Builder
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name ="user")
+@Builder
 public class User implements Serializable {
 	private static final long serialVersionUID = -6729987133621315053L;
 	

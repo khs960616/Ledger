@@ -1,4 +1,4 @@
-package ledger.user;
+package ledger;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 @RequiredArgsConstructor
 public class UserService {
-	private final UserJpaRepo userJpaRepo;
+	 private UserJpaRepo userJpaRepo;
 	
 	public List<User> getAllUser(){
 		return userJpaRepo.findAll();

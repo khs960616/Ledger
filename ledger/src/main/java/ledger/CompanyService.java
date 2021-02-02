@@ -1,15 +1,14 @@
-package ledger.company;
+package ledger;
 
 
-import ledger.bank.BankService;
 import java.util.List;
-import ledger.bank.BankService;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.java.Log;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -17,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 @RequiredArgsConstructor
 public class CompanyService {
-    private final CompanyJpaRepo companyJpaRepo;
+    private  CompanyJpaRepo companyJpaRepo;
     
     public Company createCompany(Company companyParam){
         
@@ -32,8 +31,8 @@ public class CompanyService {
                 .companyNumber(companyParam.getCompanyNumber())
                 .representative(companyParam.getRepresentative())
                 .resgistrationNumber(companyParam.getResgistrationNumber())
-                .loaction(companyParam.getLocation())
-                .bank(companyParam.getBank())
+                .location(companyParam.getLocation())
+                .bankId(companyParam.getBankId())
                 .accountNumber(companyParam.getAccountNumber())
                 .build();
         return companyJpaRepo.save(company);
@@ -43,11 +42,12 @@ public class CompanyService {
         return companyJpaRepo.findAll();
     }
 
-    public void deleteCompany(Long companyId){
-        if(companyJpaRepo.findById(companyId).get()==null){
+    public void deleteCompanyById(Long companyId){
+        Company company = companyJpaRepo.findById(companyId).get();
+        if(company ==null){
             log.info("Not Exist Error :: company");
         }
-        companyJpaRepo.delete(companyId);
+        companyJpaRepo.delete(company);
     }
 
     public Company getCompanyById(Long companyId){

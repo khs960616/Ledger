@@ -1,7 +1,8 @@
-package ledger.user;
+package ledger;
+
 
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,10 +16,10 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping(value ="/v1")
 public class UserController {
-	private final UserService userService;
+	private  UserService userService;
 	
 	@ApiOperation(value = "사용자 추가", notes = "사용자를 추가한다.")
-	@PostMapping(value = "/user")
+	@PutMapping(value = "/user")
 	public User saveUser(@ModelAttribute User userParam) {
 		return userService.createUser(userParam);
 	}
